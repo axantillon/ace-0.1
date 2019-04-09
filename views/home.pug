@@ -1,0 +1,38 @@
+extends layout
+
+block append head
+    title= title
+
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+
+block content
+    block drawer
+        body.home.mdc-typography
+            aside.mdc-drawer.ace-drawer
+                .mdc-drawer__header
+                    svg.ace-logo-drawer(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='48px', height='48px', viewBox='0 0 24 24', enable-background='new 0 0 24 24', xml:space='preserve', fill='#000000', focusable='false')
+                        g
+                            g
+                                path(d='M17,2H7L2,6.62L12,22L22,6.62L17,2z M16.5,3.58l3.16,2.92H16.5V3.58z M7.59,3.5H15v3H4.34L7.59,3.5z\
+                                        M11.25,18.1L7.94,13h3.31V18.1z M11.25,11.5H6.96L4.69,8h6.56V11.5z M16.5,12.32 M12.75,18.09V8h6.56L12.75,18.09z')           
+                            rect(fill='none', width='24', height='24')       
+                    h1.ace-title.mdc-typography--headline3 ace    
+                .mdc-drawer__content
+                    nav.mdc-list.drawer-list
+                        a.mdc-list-item.mdc-list-item--activated.mdc-typography--button.drawer-list-item(aria-selected='true', href='/home/') Home     
+                        a.mdc-list-item.mdc-typography--button.drawer-list-item(href='#') foo      
+                        a.mdc-list-item.mdc-typography--button.drawer-list-item(href='#') foo^2
+
+        .mdc-drawer-app-content
+            block content-page
+                h1.mdc-typography--headline4.content-title Models     
+                .mdc-elevation--z2
+                    ul.mdc-list
+                        each i in models
+                            li(tabindex='0')
+                                a.mdc-button--unelevated.mdc-list-item(href='/home/model?model=' + i)
+                                    i.material-icons.mdc-button__icon(aria-hidden='true') bookmark               
+                                    span.mdc-button__label.mdc-typography--button= i
+    
+    block scripts
+        script(src='/home-bundle.js', async='')

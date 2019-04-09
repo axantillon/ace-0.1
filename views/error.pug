@@ -1,0 +1,10 @@
+extends home
+
+block append head
+  title= title
+
+block content-page
+  .mdc-drawer-app-content
+    h1= message
+    h2= error.status
+    pre #{error.stack}

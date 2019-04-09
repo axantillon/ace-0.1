@@ -1,0 +1,17 @@
+extends home    
+
+block content-page
+    h1.mdc-typography--headline5.content-title= name    
+    .mdc-elevation--z2.elevation-card-model
+        block elevation-card-content
+            .elevation-card-content
+                form(action='/home/input-file', method='post')
+                    .model-input-form
+                        h1.mdc-typography--headline6 Insert File to Infer
+                        input.model-input-file.mdc-button--raised(type="file" name="model-input-file" id="model-input")
+                        input.mdc-button.mdc-button--raised.model-input-form__submit(type="submit" value="Infer")  
+
+            script(src='/model-bundle.js', async='')
+         
+    
+    

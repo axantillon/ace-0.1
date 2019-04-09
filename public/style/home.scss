@@ -1,0 +1,138 @@
+@import "/common";
+@import "@material/drawer/mdc-drawer.scss";
+@import "@material/list/mdc-list.scss";
+@import "@material/image-list/mdc-image-list.scss";
+@import "@material/ripple/mixins.scss";
+@import "@material/top-app-bar/mdc-top-app-bar.scss";
+@import "@material/typography/mdc-typography.scss";
+@import "@material/elevation/mdc-elevation.scss";
+@import "@material/button/mdc-button.scss";
+
+.home {
+  display: flex; // Flexbox is used to easily arrange the persistent drawer and content side-by-side
+}
+
+.ace-drawer {
+  @include mdc-drawer-fill-color-accessible(primary);
+  // Drawer defaults to a higher z-index, but we aren't overlaying it over anything
+  @include mdc-drawer-z-index(0);
+  text-transform: uppercase;
+
+  .model-list {
+    margin: 70px 5px auto 5px;
+  }
+
+  .mdc-list-item {
+    //border-radius: 6px;
+    justify-content: center;
+  }
+
+  // This needs 3-class specificity to override MDC Drawer styles
+  .mdc-list .mdc-list-item {
+    @include mdc-states-activated(#fff);
+  }
+}
+
+.mdc-list {
+  padding: 5px 0px;
+}
+
+.mdc-list-item {
+  margin: 5px 0;
+}
+
+.mdc-elevation--z2 {
+  @include mdc-shape-radius(2px)	
+}
+
+.mdc-button--unelevated {
+  @include mdc-button-container-fill-color(background);
+  @include mdc-button-icon-color(primary);
+  @include mdc-button-shape-radius(0px);
+}
+
+.ace-logo-drawer {
+  display: block;
+  width: 48px;
+  padding: 40px 0 0;
+  margin: 0 auto;
+  fill: currentColor;
+}
+
+.ace-title {
+  text-align: center;
+  margin: 5px auto;
+}
+
+.product-list {
+  @include mdc-image-list-standard-columns(4);
+
+  overflow: auto;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+  padding: 10px 50px 0;
+}
+
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+.content-title {
+  text-transform: uppercase;
+}
+
+.elevation-card-model {
+  position: relative;
+  height: 80%;
+  width: 100%;
+}
+
+.model-input-form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.elevation-card-content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.model-input-file {
+  @include mdc-button-container-fill-color(surface);
+  @include mdc-button-shape-radius(4px);
+  @include mdc-button-ink-color(primary)
+}
+
+.model-input-file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.model-input-form__submit {
+  margin: 10px 0;
+}
+
+.mdc-button__icon {
+  padding: 0px 10px;
+  font-size: 20px;
+}
+
